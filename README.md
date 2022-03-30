@@ -15,13 +15,13 @@
 git clone https://github.com/Dmitriy-Iv/Otus-Pr-linux-HW10.git hw10-git
 ```
 
-2. Запустить Vagrantfile
+2. Запустить Vagrantfile.
 ```
 cd hw10-git/Ansible/
 vagrant up
 ```
 
-3. После этого проверить, что машины поднялись и их видит Ansible и имеет к ним доступ
+3. После этого проверить, что машины поднялись и их видит Ansible и имеет к ним доступ.
 ```
 ansible-inventory --list
 ```
@@ -62,7 +62,7 @@ ansible-inventory --list
 }
 ```
 
-4. Запустить playbook 
+4. Запустить playbook. 
 ```
 ansible-playbook playbooks/nginx.yml
 ```
@@ -92,15 +92,21 @@ nginx                      : ok=4    changed=0    unreachable=0    failed=0    s
 nginx2                     : ok=4    changed=0    unreachable=0    failed=0    skipped=0    rescued=0    ignored=0
 ```
 
+5. Проверить доступность nginx.
+```
+curl http://192.168.56.150:80
+curl http://192.168.56.151:8080
+```
+
 ---
 
 # **Нюансы при работе с хост машиной Windows** 
 
 В моём случае - c Vagrant, VirtualBox и GitHub Desktop установленными на Windows 10, а Ansible установлен в WSL Ubuntu, я действую по следующему принципу:
 
-1. Клонирую себе на компьютер данный репозиторий через GitHub Desktop - File - Clone Repository - URL (https://github.com/Dmitriy-Iv/Otus-Pr-linux-HW10.git)
+1. Клонирую себе на компьютер данный репозиторий через GitHub Desktop - File - Clone Repository - URL (https://github.com/Dmitriy-Iv/Otus-Pr-linux-HW10.git).
 
-2. Запускаю powershell, перехожу в данный каталог, в папку Ansible и там запускаю Vagrantfile
+2. Запускаю powershell, перехожу в данный каталог, в папку Ansible и там запускаю Vagrantfile.
 ```
 PS D:\TEMP\OTUS\my-hw10\Ansible> vagrant up
 ```
@@ -117,7 +123,7 @@ dmitriy@spb:~/my-hw10/Ansible$ chmod 700 my-hw10/Ansible/.vagrant/machines/nginx
 dmitriy@spb:~/my-hw10/Ansible$ chmod 700 my-hw10/Ansible/.vagrant/machines/nginx2/virtualbox/private_key
 ```
 
-5. После этого проверяю, что машины поднялись и их видит Ansible и имеет к ним доступ, и запускаю playbook
+5. После этого проверяю, что машины поднялись и их видит Ansible и имеет к ним доступ, и запускаю playbook.
 ```
 dmitriy@spb:~$ cd my-hw10/Ansible/
 dmitriy@spb:~/my-hw10/Ansible$ ansible-inventory --list
