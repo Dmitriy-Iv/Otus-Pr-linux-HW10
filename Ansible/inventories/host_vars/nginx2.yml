@@ -1,0 +1,2 @@
+nginx_listen_port: 8080
+nginx_index_file: index_nginx2.html
